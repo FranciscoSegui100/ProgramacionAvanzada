@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package modelocteservidor;
+
+import java.io.IOException;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.util.Scanner;
+
+/**
+ *
+ * @author franc
+ */
+public class Cliente {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        // TODO code application logic here
+        
+        Scanner ln = new Scanner(System.in);
+        //se define el host, puerto, el envio al servidor y la respuesta del svdor
+        final String host= "127.0.0.1";
+        final int puerto = 8000;
+        DataInputStream in; //respuesta que obtenemos del servidor
+        DataOutputStream out; //salida / peticion que le enviamos al svdor
+        
+        try {
+            //socket donde nos conectamos
+            Socket sc = new Socket(host, puerto);
+            //definimos la entrada y salida para poder comunicarnos con el svdor
+            in= new DataInputStream(sc.getInputStream());
+            out= new DataOutputStream(sc.getOutputStream());
+            
+            System.out.println("Ingrese el formato de moneda a cambiar y el dinero que desea cotizar (Formato ESPACIO cantidad): ");
+            
+            out.writeUTF(ln.nextLine()); //enviamos la peticion / paquete al svdor
+            
+            System.out.println(in.readUTF()); //mostramos la respuesta del servidor el paquete que nos devuelve
+            
+            
+        } catch (IOException ex) {
+            
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+}
