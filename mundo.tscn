@@ -1,0 +1,545 @@
+[gd_scene format=3 uid="uid://b4745sive1fmf"]
+
+[ext_resource type="Script" uid="uid://db440n8x04ruh" path="res://jugador.gd" id="1_6ba58"]
+[ext_resource type="Script" uid="uid://cgkd328bciee7" path="res://mundo.gd" id="1_lgngo"]
+[ext_resource type="Texture2D" uid="uid://cun6xumxj0keh" path="res://sprites/XGr30D.jpg" id="2_2hh7m"]
+[ext_resource type="PackedScene" uid="uid://t1td06j5i7ci" path="res://enemigo.tscn" id="3_fw4w5"]
+[ext_resource type="Texture2D" uid="uid://cvj7k0ybok4d1" path="res://imported/imagen_rescatada.png" id="4_57gmc"]
+[ext_resource type="Script" uid="uid://hbr2t245h0k7" path="res://enemigo3.gd" id="4_aou4a"]
+[ext_resource type="Script" uid="uid://n17ua8c5k7ll" path="res://enemigo2.gd" id="4_otwa2"]
+[ext_resource type="Script" uid="uid://drkpylgkx3jtu" path="res://enemigo4.gd" id="5_5ckkb"]
+[ext_resource type="Texture2D" uid="uid://bagi4rre0j0i8" path="res://sprites/image-Photoroom (14).png" id="6_pij3u"]
+[ext_resource type="Texture2D" uid="uid://cgk2spu0w1ycw" path="res://sprites/image-Photoroom (13).png" id="8_t8jxu"]
+[ext_resource type="Texture2D" uid="uid://d3b0rec3tlj7f" path="res://sprites/meta.png" id="11_0oi55"]
+[ext_resource type="Script" uid="uid://d4gf727a8y7lm" path="res://sprite_2dEnemigo4.gd" id="12_57gmc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0oi55"]
+radius = 27.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ba58"]
+size = Vector2(466, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ckkb"]
+size = Vector2(502, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgngo"]
+size = Vector2(200, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw4w5"]
+size = Vector2(200, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lgngo"]
+friction = 0.39
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otwa2"]
+size = Vector2(19.999865, 199.99965)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hh7m"]
+size = Vector2(258.2422, 39.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8jxu"]
+size = Vector2(312, 42.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfhxm"]
+size = Vector2(225.58374, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pij3u"]
+size = Vector2(152, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0oi55"]
+size = Vector2(258.28674, 20)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0oi55"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_57gmc"]
+font_size = 80
+
+[node name="Mundo" type="Node2D" unique_id=353064206]
+process_mode = 3
+script = ExtResource("1_lgngo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1579217844]
+
+[node name="LabelVidas" type="Label" parent="CanvasLayer" unique_id=1203872706]
+offset_left = 96.0
+offset_top = 49.0
+offset_right = 574.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 22
+
+[node name="LabelFrijoles" type="Label" parent="CanvasLayer" unique_id=750594128]
+offset_left = 91.0
+offset_top = 28.0
+offset_right = 569.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+
+[node name="LabelControles" type="Label" parent="CanvasLayer" unique_id=57415825]
+offset_left = 170.0
+offset_top = 487.0
+offset_right = 648.0
+offset_bottom = 510.0
+
+[node name="LabelNivel" type="Label" parent="CanvasLayer" unique_id=1024461731]
+offset_left = 2020.0
+offset_top = 43.0
+offset_right = 2498.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0.15407446, 0.7659957, 0.1942881, 1)
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=9874456]
+position = Vector2(1137.5, -28.749939)
+scale = Vector2(11.43804, 6.703463)
+texture = ExtResource("2_2hh7m")
+
+[node name="Jugador" type="CharacterBody2D" parent="." unique_id=634344494]
+process_mode = 1
+position = Vector2(2, 0)
+script = ExtResource("1_6ba58")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador" unique_id=2127615131]
+position = Vector2(1, -33)
+shape = SubResource("CircleShape2D_0oi55")
+
+[node name="ColorRect" type="ColorRect" parent="Jugador" unique_id=1420260561]
+visible = false
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+color = Color(0.28892347, 0.7774376, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=1246125471]
+
+[node name="PorotoSprite" type="Sprite2D" parent="Jugador" unique_id=2086255739]
+position = Vector2(-1, -35)
+scale = Vector2(0.50384617, 0.39285716)
+texture = ExtResource("4_57gmc")
+
+[node name="LabelTiempo" type="Label" parent="Jugador" unique_id=534478239]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.99215686, 0.9529412, 0, 1)
+
+[node name="TimerRonda" type="Timer" parent="Jugador" unique_id=1393229549 groups=["enemigos"]]
+wait_time = 3.0
+
+[node name="Suelo" type="StaticBody2D" parent="." unique_id=896886237]
+position = Vector2(576, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo" unique_id=381158488]
+position = Vector2(-324, -1.5)
+shape = SubResource("RectangleShape2D_6ba58")
+
+[node name="ColorRect" type="ColorRect" parent="Suelo" unique_id=312593713]
+offset_left = -556.0
+offset_top = -23.0
+offset_right = -92.0
+offset_bottom = 20.0
+color = Color(0.012742692, 0.8476409, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Suelo" unique_id=1386213408]
+offset_left = 28.0
+offset_top = 8.0
+offset_right = 530.0
+offset_bottom = 30.0
+color = Color(0.011764706, 0.84705883, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Suelo" unique_id=1093570652]
+position = Vector2(279, 19)
+shape = SubResource("RectangleShape2D_5ckkb")
+
+[node name="Plataforma1" type="StaticBody2D" parent="." unique_id=54754175]
+position = Vector2(250, 280)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma1" unique_id=1605895313]
+shape = SubResource("RectangleShape2D_lgngo")
+
+[node name="ColorRect" type="ColorRect" parent="Plataforma1" unique_id=91360269]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 10.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Plataforma2" type="StaticBody2D" parent="." unique_id=254503461]
+position = Vector2(500, 210)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma2" unique_id=2130608349]
+shape = SubResource("RectangleShape2D_fw4w5")
+
+[node name="ColorRect" type="ColorRect" parent="Plataforma2" unique_id=901326384]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 10.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Plataforma3" type="StaticBody2D" parent="." unique_id=142546264]
+position = Vector2(790, 355)
+rotation = 0.2617994
+physics_material_override = SubResource("PhysicsMaterial_lgngo")
+
+[node name="ColorRect" type="ColorRect" parent="Plataforma3" unique_id=70351933]
+offset_left = -33.11888
+offset_top = -7.690243
+offset_right = 166.88112
+offset_bottom = 12.309757
+rotation = -0.2617994
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma3" unique_id=539350666]
+position = Vector2(66.061584, -23.912918)
+rotation = 1.3089969
+scale = Vector2(1.0000011, 1.0000011)
+shape = SubResource("RectangleShape2D_otwa2")
+
+[node name="Enemigo" parent="." unique_id=473241796 groups=["enemigos"] instance=ExtResource("3_fw4w5")]
+process_mode = 1
+position = Vector2(82, 355)
+
+[node name="CucharonSprite" type="Sprite2D" parent="Enemigo" unique_id=1477606368]
+process_mode = 3
+position = Vector2(-4.5, 8.249989)
+scale = Vector2(0.29500002, 0.084166706)
+texture = ExtResource("6_pij3u")
+
+[node name="Enemigo2" parent="." unique_id=662716785 groups=["enemigos"] instance=ExtResource("3_fw4w5")]
+process_mode = 1
+position = Vector2(1646, 357)
+script = ExtResource("4_otwa2")
+velocidad = 300.0
+limite_izquierdo = 1650.0
+limite_derecho = 1910.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo2" unique_id=885818589]
+position = Vector2(-5.5, 8.25)
+scale = Vector2(0.29500002, 0.084166706)
+texture = ExtResource("6_pij3u")
+
+[node name="Enemigo3" parent="." unique_id=1952181415 groups=["enemigos"] instance=ExtResource("3_fw4w5")]
+process_mode = 1
+position = Vector2(2119, 356)
+script = ExtResource("4_aou4a")
+velocidad = 820.0
+limite_izquierdo = 2100.0
+limite_derecho = 2320.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo3" unique_id=1955643177]
+position = Vector2(-7.5, 9.25)
+scale = Vector2(0.29500002, 0.084166706)
+texture = ExtResource("6_pij3u")
+
+[node name="Suelo2" type="StaticBody2D" parent="." unique_id=1225077023]
+position = Vector2(1789, 215)
+
+[node name="piso2Mudno2" type="CollisionShape2D" parent="Suelo2" unique_id=793276441]
+position = Vector2(-436.41406, 197.875)
+shape = SubResource("RectangleShape2D_2hh7m")
+
+[node name="ColorRect" type="ColorRect" parent="Suelo2/piso2Mudno2" unique_id=1970505231]
+offset_left = -130.0
+offset_top = -20.0
+offset_right = 131.34375
+offset_bottom = 20.0
+color = Color(0.011764706, 0.84705883, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Suelo2" unique_id=882420108]
+position = Vector2(429.8789, 183)
+shape = SubResource("RectangleShape2D_2hh7m")
+
+[node name="ColorRect2" type="ColorRect" parent="Suelo2/CollisionShape2D2" unique_id=1827649978]
+offset_left = -131.0
+offset_top = -22.0
+offset_right = 128.82813
+offset_bottom = 20.0
+color = Color(0.011764706, 0.84705883, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo2" unique_id=96788874]
+position = Vector2(-23, 185.625)
+shape = SubResource("RectangleShape2D_t8jxu")
+
+[node name="ColorRect1nivel2" type="ColorRect" parent="Suelo2/CollisionShape2D" unique_id=6516462]
+offset_left = -156.0
+offset_top = -21.625
+offset_right = 156.0
+offset_bottom = 21.375
+color = Color(0.011764706, 0.84705883, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="plataforma" type="CollisionShape2D" parent="Suelo2" unique_id=1951638943]
+position = Vector2(-11, 89)
+shape = SubResource("RectangleShape2D_pfhxm")
+
+[node name="Polygon2D" type="Polygon2D" parent="Suelo2/plataforma" unique_id=54955934]
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(-114.5, -11, -114.5, 10, 11.0121155, 10.000008, 114.5, 10, 114.5, -11)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Suelo2" unique_id=1544171531]
+position = Vector2(431, 92)
+shape = SubResource("RectangleShape2D_pij3u")
+
+[node name="ColorRect" type="ColorRect" parent="Suelo2" unique_id=695216558]
+offset_left = 355.0
+offset_top = 82.0
+offset_right = 507.0
+offset_bottom = 103.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1296419619]
+position = Vector2(2, 0)
+
+[node name="StaticBody2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=900157206]
+position = Vector2(2530.7114, 314.52438)
+rotation = -0.49741888
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_0oi55")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2/StaticBody2D" unique_id=1130290166]
+offset_left = -129.70883
+offset_top = -9.52745
+offset_right = 130.76468
+offset_bottom = 10.723771
+rotation = 0.0034906585
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1780880446]
+position = Vector2(2908, 317.99994)
+rotation = -5.7229347
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_0oi55")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2/StaticBody2D2" unique_id=552863264]
+offset_left = -128.98099
+offset_top = -10.743873
+offset_right = 129.17868
+offset_bottom = 10.5237055
+rotation = 0.008726646
+color = Color(0.011764706, 0.84705883, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="FrijolSprite" type="Sprite2D" parent="." unique_id=1838643717]
+position = Vector2(243.00002, 221.00002)
+scale = Vector2(0.10520836, 0.07025763)
+texture = ExtResource("8_t8jxu")
+
+[node name="MetaSprite" type="Sprite2D" parent="." unique_id=2026799349]
+position = Vector2(3067.9995, 399)
+scale = Vector2(0.10054348, 0.13722827)
+texture = ExtResource("11_0oi55")
+
+[node name="MenuPrincipal" type="CanvasLayer" parent="." unique_id=1299846605]
+process_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MenuPrincipal" unique_id=1619937529]
+anchors_preset = -1
+anchor_left = -0.5101111
+anchor_top = -0.4952469
+anchor_right = 0.267
+anchor_bottom = 0.27814814
+offset_left = 590.64795
+offset_top = 321.91998
+offset_right = 840.416
+offset_bottom = 476.76
+mouse_filter = 2
+color = Color(0, 0.6286668, 0.82, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Jugar" type="Button" parent="MenuPrincipal" unique_id=1569069254]
+anchors_preset = -1
+anchor_left = -0.019097222
+anchor_top = -0.14969136
+anchor_right = 0.17881945
+offset_left = 450.0
+offset_top = 313.0
+offset_right = 529.0
+offset_bottom = 344.0
+text = "Jugar"
+icon = SubResource("ViewportTexture_0oi55")
+metadata/_edit_use_anchors_ = true
+
+[node name="Salir" type="Button" parent="MenuPrincipal" unique_id=944508588]
+anchors_preset = -1
+anchor_top = -0.08796296
+anchor_right = 0.2013889
+anchor_bottom = 0.063271604
+offset_left = 427.0
+offset_top = 447.0
+offset_right = 503.0
+offset_bottom = 478.0
+text = "Salir"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit" type="Label" parent="MenuPrincipal" unique_id=1506444792]
+anchors_preset = -1
+anchor_left = 0.18800001
+anchor_top = 0.20799999
+anchor_right = 0.453625
+anchor_bottom = 0.20799999
+offset_left = 30.423996
+offset_top = -82.784
+offset_right = 431.424
+offset_bottom = 27.216003
+text = "Juego del frijol "
+label_settings = SubResource("LabelSettings_57gmc")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuPausa" type="CanvasLayer" parent="." unique_id=1695160662]
+process_mode = 2
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="MenuPausa" unique_id=668395653]
+anchors_preset = -1
+anchor_left = 0.04718055
+anchor_top = -0.20487656
+anchor_right = 0.5575973
+anchor_bottom = 0.2874074
+offset_left = 238.64801
+offset_top = 292.76
+offset_right = 278.64795
+offset_bottom = 332.76
+color = Color(0, 0.6286668, 0.82, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Reanudar" type="Button" parent="MenuPausa" unique_id=576926552]
+process_mode = 3
+anchors_preset = -1
+anchor_left = -0.09288195
+anchor_right = 0.104166664
+offset_left = 571.0
+offset_top = 275.0
+offset_right = 655.0
+offset_bottom = 306.0
+text = "Reanudar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Reiniciar" type="Button" parent="MenuPausa" unique_id=1285125603]
+process_mode = 3
+anchors_preset = -1
+anchor_left = -0.090277776
+anchor_right = 0.113715276
+offset_left = 569.0
+offset_top = 317.0
+offset_right = 645.0
+offset_bottom = 348.0
+text = "Reiniciar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Salir" type="Button" parent="MenuPausa" unique_id=517349429]
+process_mode = 3
+anchors_preset = -1
+anchor_left = -0.09375
+anchor_right = 0.112847224
+offset_left = 570.0
+offset_top = 362.0
+offset_right = 646.0
+offset_bottom = 393.0
+text = "Salir"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MenuPausa" unique_id=1589304351]
+anchors_preset = -1
+anchor_left = -0.040798612
+anchor_top = -0.06790123
+anchor_right = 0.034722224
+offset_left = 549.0
+offset_top = 245.0
+offset_right = 714.0
+offset_bottom = 245.0
+theme_override_font_sizes/font_size = 31
+text = "JUEGO PAUSADO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PantallaFin" type="CanvasLayer" parent="." unique_id=2112542170]
+process_mode = 3
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="PantallaFin" unique_id=181901017]
+anchors_preset = -1
+anchor_left = 0.25117362
+anchor_top = -0.2650617
+anchor_right = 1.2103751
+anchor_bottom = 0.7040741
+offset_left = -292.352
+offset_top = 154.76
+offset_right = -252.35202
+offset_bottom = 194.76
+color = Color(0, 0.6286668, 0.82, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ReiniciarFin" type="Button" parent="PantallaFin" unique_id=239697167]
+anchors_preset = -1
+anchor_left = -0.120659724
+anchor_right = 0.14409722
+offset_left = 563.0
+offset_top = 272.0
+offset_right = 639.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 32
+text = "Reiniciar"
+metadata/_edit_use_anchors_ = true
+
+[node name="SalirFin" type="Button" parent="PantallaFin" unique_id=144123608]
+anchors_preset = -1
+anchor_left = -0.11892361
+anchor_right = 0.14583333
+anchor_bottom = 0.033950616
+offset_left = 562.0
+offset_top = 338.0
+offset_right = 638.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 32
+text = "Salir"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoFin" type="Label" parent="PantallaFin" unique_id=980038471]
+anchors_preset = -1
+anchor_left = -0.09201389
+anchor_right = 0.045138888
+anchor_bottom = 0.029320987
+offset_left = 268.0
+offset_top = 107.0
+offset_right = 1006.0
+offset_bottom = 198.0
+theme_override_font_sizes/font_size = 45
+text = "!HAS GANDO EL JUEGO!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Enemigo4" parent="." unique_id=741889071 groups=["enemigos"] instance=ExtResource("3_fw4w5")]
+position = Vector2(2737, 222)
+scale = Vector2(0.295, 0.1)
+script = ExtResource("5_5ckkb")
+velocidad = 80.0
+limite_abajo = 190.0
+limite_arriba = 280.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo4" unique_id=199170078]
+position = Vector2(-5.5, 6.25)
+scale = Vector2(0.29500002, 0.084166706)
+texture = ExtResource("6_pij3u")
+script = ExtResource("12_57gmc")
+
+[connection signal="timeout" from="Jugador/TimerRonda" to="Jugador" method="_on_timer_ronda_timeout"]
+[connection signal="body_entered" from="Enemigo" to="Jugador" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemigo2" to="Jugador" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemigo3" to="Jugador" method="_on_body_entered"]
+[connection signal="pressed" from="MenuPrincipal/Jugar" to="." method="_on_boton_jugar_pressed"]
+[connection signal="pressed" from="MenuPrincipal/Salir" to="." method="_on_boton_salir_pressed"]
+[connection signal="pressed" from="MenuPausa/Reanudar" to="." method="_on_boton_reanudar_pressed"]
+[connection signal="pressed" from="MenuPausa/Reiniciar" to="." method="_on_boton_reiniciar_pausa_pressed"]
+[connection signal="pressed" from="MenuPausa/Salir" to="." method="_on_boton_salir_pressed"]
+[connection signal="pressed" from="PantallaFin/ReiniciarFin" to="." method="_on_boton_reiniciar_fin_pressed"]
+[connection signal="pressed" from="PantallaFin/SalirFin" to="." method="_on_boton_salir_pressed"]
+[connection signal="body_entered" from="Enemigo4" to="Jugador" method="_on_body_entered"]
